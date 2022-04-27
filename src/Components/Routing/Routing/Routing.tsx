@@ -11,9 +11,10 @@ return (
 <Switch>
 <Route path="/home" component={Main} exact/>
 <Route path="/" component={Main} exact/>
-<Route path="/login" component={Login}/>
-<Route path="/logout" component={Logout}/>
 <Redirect from="/" to="/home" exact/>
+<Route path="/login" component={Login} exact/>
+
+<Redirect from="/logout" to="/home" exact/>
 <Route component={Page404}/>
 </Switch>
     </div>

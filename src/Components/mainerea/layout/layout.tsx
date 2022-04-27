@@ -23,8 +23,7 @@ class Layout extends Component {
 
 				<header>
                   <Header/> 
-                  <Login/>
-                  <Logout/>
+                  
                 </header>
 
                 <aside>
