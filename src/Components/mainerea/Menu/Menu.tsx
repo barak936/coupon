@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { NavLink } from "react-router-dom";
 import "./Menu.css";
 
 
@@ -8,7 +9,8 @@ class Menu extends Component {
         return (
             <div className="Menu">
                 <br/>
-                <a href="/home"> Home</a>
+                <NavLink exact to="/"> Home </NavLink>
+                <br/>
             </div>
         );
     }

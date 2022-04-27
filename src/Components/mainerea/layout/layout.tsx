@@ -1,5 +1,7 @@
 import { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
+import Login from "../../login/login";
+import Logout from "../../logout/logout";
 import Routing from "../../Routing/Routing/Routing";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -21,6 +23,8 @@ class Layout extends Component {
 
 				<header>
                   <Header/> 
+                  <Login/>
+                  <Logout/>
                 </header>
 
                 <aside>
