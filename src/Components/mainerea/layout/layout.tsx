@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
+import Routing from "../../Routing/Routing/Routing";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Logo from "../Logo/Logo";
@@ -11,8 +12,8 @@ class Layout extends Component {
 
     public render(): JSX.Element {
         return (
+            <BrowserRouter>
             <div className="layout">
-<BrowserRouter>
 <aside>
                     <Logo/>
                     
@@ -27,14 +28,15 @@ class Layout extends Component {
                 </aside>
 
                  <main>
-                    <Main/>
+                    <Routing/>
                 </main>
                 
                 <footer>
                     <Footer/>
                 </footer>
-                </BrowserRouter>
             </div>
+            </BrowserRouter>
+
         );
     }
 }
