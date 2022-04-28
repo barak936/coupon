@@ -2,3 +2,12 @@
 	
 }
 
+.navlink {
+    display: inline-block;
+  text-align: right;
+  border: 3px dashed black;
+  padding: 0 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px;
+}
