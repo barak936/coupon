@@ -1,6 +1,6 @@
 
 import { Notyf } from "notyf";
-/*
+
 class Notify{
     private notification = new Notyf({duration:4000,position:{x:"center" , y:"top"}})
 
@@ -18,4 +18,3 @@ class Notify{
 const notify = new Notify();
 //expose our new shiny class to the world
 export default notify;
-*/

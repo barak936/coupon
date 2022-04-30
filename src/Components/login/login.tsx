@@ -1,41 +1,80 @@
-import { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { Component, useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
 import "./login.css";
 import {Button, ButtonGroup, TextField, Typography} from "@material-ui/core";
 import { ContactMail, VerifiedUserOutlined } from "@material-ui/icons";
 import { Password } from "@mui/icons-material";
+import axios from "axios";
+import store from "../../redux/store";
+import notify from "../../Utils/Notify";
+import {useForm, SubmitHandler} from "react-hook-form";
 
 interface formable{
+    clientType:String;
     userName:String;
-    userPassword:String;
-    role:String;
+    userPass:String;
+
 }
 
-class Login extends Component {
-
-    public render(): JSX.Element {
-        const fieldDesign = {fontsize:40, margin:10};
+function Login(): JSX.Element {
+    const fieldDesign = {fontSize:40, margin:10};
+    const {register,handleSubmit,formState:{errors}} = useForm<formable>();
+    const [jwt,setJWT] = useState("no token");
+    const history = useHistory();
     
-        return (
-            <div className="login BoxSolid">
-                
-                <Typography variant="h4" className="HeadLine"> Login Screen </Typography>
-                <ContactMail> style={fieldDesign}</ContactMail>
-                <TextField label="email" variant="outlined"/>
-                    <br/><br/>
-                    <Password style={fieldDesign}/>
-                <TextField type="password" label="password" variant="outlined"/>
+
+    const onSubmit:SubmitHandler<formable> = (data) => {
+        const url = "http://localhost:8080/administrator/Login";
+        //production
+        //const url = "/login"
+        console.log(data);
+        
+        axios.post(url,data)
+        .then(res=>{
+            //console.log("res:",res);
+            if (res.data.length<3){
+                notify.error("Bad login");
+                return;
+            }
+            history.push("/");
+            console.log(res.data);
+            //store.dispatch(userUpdateAction(res.data));           
+            setJWT(store.getState().authState.jwt);
+        })
+        .catch(error=>{
+            console.log("Barak the king");
+            console.log(error);
+            //console.log(error.response.status);
+            //notify.error(error.response.data.description);
+            
+            //console.log(error);
+        });
+        
+    };
+
+    return (
+        <div className="login BoxSolid">
+			<Typography variant="h4" className="HeadLine">Login Screen</Typography><hr/>
+            <form onSubmit={handleSubmit(onSubmit)}>
+            <VerifiedUserOutlined style={fieldDesign}/>
+                <TextField  label="user type" variant="outlined" {...register("clientType",{required:true})}/>
                 <br/><br/>
-                <VerifiedUserOutlined style={fieldDesign}/>
-                <TextField label="user type" variant="outlined"/>
+                <ContactMail style={fieldDesign}/>
+                <TextField label="email" variant="outlined" {...register("userName",{required:true})}/>
+                <br/>
+                <div >{errors.userName && "You must give user email"}</div>
+                <br/><br/>
+                <Password style={fieldDesign}/>
+                <TextField  type="password" label="password" variant="outlined" {...register("userPass",{required:true})}/>
                 <br/><br/>
                 <ButtonGroup variant="contained" fullWidth>
-                    <Button type="submit" color="primary"> Send </Button>
+                    <Button type="submit" color="primary">Send</Button>
                 </ButtonGroup>
-            
-            </div>
-        );
-    }
+                <br/>
+                JWT TOKEN:{jwt}
+            </form>
+        </div>
+    );
 }
 
 export default Login;
