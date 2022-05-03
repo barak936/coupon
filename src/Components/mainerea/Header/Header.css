@@ -1,10 +1,21 @@
 .Header {
+  
+
 	
 }
 
-#login {
+#loginn {
  
-
+text-align: right;
+margin-right: 1%;
    
   }
+
+  #logoutt {
+ 
+    text-align: right;
+    margin-top: 1%;
+  
+       
+      }
 

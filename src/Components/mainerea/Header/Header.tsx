@@ -13,8 +13,19 @@ class Header extends Component {
             <div className="Header"> 
             
 				<h1>okCoupon!!!</h1>
-                <NavLink exact to="/login" id="login"> LOGIN </NavLink>  &nbsp;&nbsp;&nbsp;
-                <NavLink exact to="/logout" > LOGOUT </NavLink>
+                <div id="loginn">
+                <NavLink exact to="/login" id="login"> 
+                <Button variant="contained" color="primary" >
+                    LOGIN
+                </Button> 
+                </NavLink>    &nbsp;
+                <NavLink exact to="/logout" >
+                    <Button variant="contained" color="secondary">
+                    LOGOUT 
+                    </Button> 
+                </NavLink>
+                </div>
+              
             </div>
             
         );

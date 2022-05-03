@@ -3,10 +3,16 @@ html,body,#root{
   padding: 0;
   height: 100%;
   text-align: center;
-  font-style: italic;
-  color: rgb(117, 18, 18);
-  background-image: linear-gradient(45deg, rgb(219, 67, 67), white);
+  font-style: normal;
+  font:bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color:black;
+  background-color: antiquewhite;
+  /*background-image: linear-gradient(45deg, rgb(219, 67, 67), white);*/
 }
+
+
+
 a{
   color: blue;
 }

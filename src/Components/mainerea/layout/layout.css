@@ -8,9 +8,22 @@
 
 .layout>header, .layout>footer{
     grid-column: span 6;
+    color:black ;
+    font-size:medium ;
+   
+
 }
 .layout>header{
     grid-column: span 5;
+    background-color: IndianRed
+    ;
+    color: aliceblue;
+
+}
+
+.layout>aside{
+   
+    background-color:beige;
 }
 
 .layout>main{

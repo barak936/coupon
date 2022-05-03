@@ -2,7 +2,7 @@ import { Component, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import "./login.css";
 import {Button, ButtonGroup, TextField, Typography} from "@material-ui/core";
-import { ContactMail, VerifiedUserOutlined } from "@material-ui/icons";
+import { ContactMail, VerifiedUserOutlined  } from "@material-ui/icons";
 import { Password } from "@mui/icons-material";
 import axios from "axios";
 import store from "../../redux/store";
@@ -38,7 +38,8 @@ function Login(): JSX.Element {
             }
             history.push("/");
             console.log(res.data);
-            //store.dispatch(userUpdateAction(res.data));           
+            //store.dispatch(userUpdateAction(res.data));  
+            //store.getState().authState.jwt=res.data;         
             setJWT(store.getState().authState.jwt);
         })
         .catch(error=>{
@@ -54,21 +55,22 @@ function Login(): JSX.Element {
 
     return (
         <div className="login BoxSolid">
-			<Typography variant="h4" className="HeadLine">Login Screen</Typography><hr/>
+			<Typography variant="h4" id="HeadLine">Login Screen</Typography><hr/>
             <form onSubmit={handleSubmit(onSubmit)}>
-            <VerifiedUserOutlined style={fieldDesign}/>
-                <TextField  label="user type" variant="outlined" {...register("clientType",{required:true})}/>
+            <VerifiedUserOutlined color="error" style={fieldDesign}/>
+                <TextField placeholder="customer? company?" label="user type" variant="outlined" {...register("clientType",{required:true})}/>
                 <br/><br/>
-                <ContactMail style={fieldDesign}/>
-                <TextField label="email" variant="outlined" {...register("userName",{required:true})}/>
+                <ContactMail color="error" style={fieldDesign}/>
+                <TextField placeholder="yourEmail@m.com" label="email" variant="outlined" {...register("userName",{required:true})}/>
                 <br/>
                 <div >{errors.userName && "You must give user email"}</div>
                 <br/><br/>
-                <Password style={fieldDesign}/>
-                <TextField  type="password" label="password" variant="outlined" {...register("userPass",{required:true})}/>
+                <Password color="error" style={fieldDesign}/>
+                <TextField placeholder="remember it" type="password" label="password" variant="outlined" {...register("userPass",{required:true})}/>
                 <br/><br/>
                 <ButtonGroup variant="contained" fullWidth>
-                    <Button type="submit" color="primary">Send</Button>
+             
+                    <Button type="submit" color="primary"> Sign In</Button>
                 </ButtonGroup>
                 <br/>
                 JWT TOKEN:{jwt}

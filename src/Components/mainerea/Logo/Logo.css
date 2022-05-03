@@ -1,11 +1,13 @@
 .Logo {
 
-	
+	background-color: red;
 }
 
 img{
-    max-width:45%;
-    height: 150;
+    
+    max-width:70%;
+    height: auto;
+    
 }
 
 /*\comment*/
