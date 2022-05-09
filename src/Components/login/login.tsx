@@ -13,7 +13,6 @@ interface formable{
     clientType:String;
     userName:String;
     userPass:String;
-
 }
 
 function Login(): JSX.Element {
@@ -29,9 +28,11 @@ function Login(): JSX.Element {
         //const url = "/login"
         console.log(data);
         
-        axios.post(url,data)
+        axios
+        .post(url,data)
         .then(res=>{
             //console.log("res:",res);
+            
             if (res.data.length<3){
                 notify.error("Bad login");
                 return;

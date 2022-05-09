@@ -44,6 +44,11 @@ export function AuthReducer(currentState: AuthState = new AuthState, action: Aut
 
     switch (action.type){
         case AuthActionType.UserLogin:
+            
+            newState.jwt=action.payload;
+            console.log("redux have a new JWT token");
+            newState.isLogged=true;
+            
             //do somthing
             
             break;
