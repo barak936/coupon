@@ -14,16 +14,17 @@ class Header extends Component {
             
 				<h1>okCoupon!!!</h1>
                 <div id="loginn">
-                <NavLink exact to="/login" id="login"> 
-                <Button variant="contained" color="primary" >
+            
+                
+                <Button variant="contained" color="primary" href="/login" >
                     LOGIN
                 </Button> 
-                </NavLink>    &nbsp;
-                <NavLink exact to="/logout" >
-                    <Button variant="contained" color="secondary">
+                    &nbsp;
+                
+                    <Button variant="contained" color="secondary" href="/logout">
                     LOGOUT 
                     </Button> 
-                </NavLink>
+                
                 </div>
               
             </div>
@@ -33,3 +34,8 @@ class Header extends Component {
 }
 
 export default Header;
+
+/*
+<NavLink exact to="/login" id="login"> </NavLink>
+<NavLink exact to="/logout" > </NavLink>
+*/

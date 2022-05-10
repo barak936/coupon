@@ -11,11 +11,11 @@ class Menu extends Component {
             <div className="Menu">
                 <br/>
                 
-                    <NavLink exact to="/">
-                        <Button variant="outlined" color="secondary">
+                    
+                        <Button variant="outlined" color="secondary" href="/">
                         Home
                         </Button>
-                    </NavLink>
+                   
                 
                 <br/>
             </div>
@@ -24,3 +24,7 @@ class Menu extends Component {
 }
 
 export default Menu;
+
+/*
+<NavLink exact to="/">  </NavLink>
+*/

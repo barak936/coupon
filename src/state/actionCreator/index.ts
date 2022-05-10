@@ -65,7 +65,7 @@ export const tryCompanyLogin = (userName: String, userPass: string) => {
                 userName: userName,
                 userPass: userPass,
             });
-            //localStorage.setItem("token", headers.authorizations);
+            localStorage.setItem("token", headers.authorizations);
             dispatch({
                 type: ActionType.COMPANY_LOGIN,
                 payload: {
